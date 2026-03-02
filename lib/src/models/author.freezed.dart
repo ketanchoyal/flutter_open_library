@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Author {
 
- String get key; String get name; String? get bio;@JsonKey(name: 'birth_date') String? get birthDate;@JsonKey(name: 'death_date') String? get deathDate; List<int>? get photos;
+ String get key; String get name;@JsonKey(fromJson: _bioFromJson) String? get bio;@JsonKey(name: 'birth_date') String? get birthDate;@JsonKey(name: 'death_date') String? get deathDate; List<int>? get photos;
 /// Create a copy of Author
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $AuthorCopyWith<$Res>  {
   factory $AuthorCopyWith(Author value, $Res Function(Author) _then) = _$AuthorCopyWithImpl;
 @useResult
 $Res call({
- String key, String name, String? bio,@JsonKey(name: 'birth_date') String? birthDate,@JsonKey(name: 'death_date') String? deathDate, List<int>? photos
+ String key, String name,@JsonKey(fromJson: _bioFromJson) String? bio,@JsonKey(name: 'birth_date') String? birthDate,@JsonKey(name: 'death_date') String? deathDate, List<int>? photos
 });
 
 
@@ -158,7 +158,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String key,  String name,  String? bio, @JsonKey(name: 'birth_date')  String? birthDate, @JsonKey(name: 'death_date')  String? deathDate,  List<int>? photos)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String key,  String name, @JsonKey(fromJson: _bioFromJson)  String? bio, @JsonKey(name: 'birth_date')  String? birthDate, @JsonKey(name: 'death_date')  String? deathDate,  List<int>? photos)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Author() when $default != null:
 return $default(_that.key,_that.name,_that.bio,_that.birthDate,_that.deathDate,_that.photos);case _:
@@ -179,7 +179,7 @@ return $default(_that.key,_that.name,_that.bio,_that.birthDate,_that.deathDate,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String key,  String name,  String? bio, @JsonKey(name: 'birth_date')  String? birthDate, @JsonKey(name: 'death_date')  String? deathDate,  List<int>? photos)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String key,  String name, @JsonKey(fromJson: _bioFromJson)  String? bio, @JsonKey(name: 'birth_date')  String? birthDate, @JsonKey(name: 'death_date')  String? deathDate,  List<int>? photos)  $default,) {final _that = this;
 switch (_that) {
 case _Author():
 return $default(_that.key,_that.name,_that.bio,_that.birthDate,_that.deathDate,_that.photos);case _:
@@ -199,7 +199,7 @@ return $default(_that.key,_that.name,_that.bio,_that.birthDate,_that.deathDate,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String key,  String name,  String? bio, @JsonKey(name: 'birth_date')  String? birthDate, @JsonKey(name: 'death_date')  String? deathDate,  List<int>? photos)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String key,  String name, @JsonKey(fromJson: _bioFromJson)  String? bio, @JsonKey(name: 'birth_date')  String? birthDate, @JsonKey(name: 'death_date')  String? deathDate,  List<int>? photos)?  $default,) {final _that = this;
 switch (_that) {
 case _Author() when $default != null:
 return $default(_that.key,_that.name,_that.bio,_that.birthDate,_that.deathDate,_that.photos);case _:
@@ -214,12 +214,12 @@ return $default(_that.key,_that.name,_that.bio,_that.birthDate,_that.deathDate,_
 @JsonSerializable()
 
 class _Author implements Author {
-  const _Author({required this.key, required this.name, this.bio, @JsonKey(name: 'birth_date') this.birthDate, @JsonKey(name: 'death_date') this.deathDate, final  List<int>? photos}): _photos = photos;
+  const _Author({required this.key, required this.name, @JsonKey(fromJson: _bioFromJson) this.bio, @JsonKey(name: 'birth_date') this.birthDate, @JsonKey(name: 'death_date') this.deathDate, final  List<int>? photos}): _photos = photos;
   factory _Author.fromJson(Map<String, dynamic> json) => _$AuthorFromJson(json);
 
 @override final  String key;
 @override final  String name;
-@override final  String? bio;
+@override@JsonKey(fromJson: _bioFromJson) final  String? bio;
 @override@JsonKey(name: 'birth_date') final  String? birthDate;
 @override@JsonKey(name: 'death_date') final  String? deathDate;
  final  List<int>? _photos;
@@ -265,7 +265,7 @@ abstract mixin class _$AuthorCopyWith<$Res> implements $AuthorCopyWith<$Res> {
   factory _$AuthorCopyWith(_Author value, $Res Function(_Author) _then) = __$AuthorCopyWithImpl;
 @override @useResult
 $Res call({
- String key, String name, String? bio,@JsonKey(name: 'birth_date') String? birthDate,@JsonKey(name: 'death_date') String? deathDate, List<int>? photos
+ String key, String name,@JsonKey(fromJson: _bioFromJson) String? bio,@JsonKey(name: 'birth_date') String? birthDate,@JsonKey(name: 'death_date') String? deathDate, List<int>? photos
 });
 
 

@@ -9,7 +9,7 @@ part of 'author.dart';
 _Author _$AuthorFromJson(Map<String, dynamic> json) => _Author(
   key: json['key'] as String,
   name: json['name'] as String,
-  bio: json['bio'] as String?,
+  bio: _bioFromJson(json['bio']),
   birthDate: json['birth_date'] as String?,
   deathDate: json['death_date'] as String?,
   photos: (json['photos'] as List<dynamic>?)
