@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Work {
 
- String get key; String get title; String? get description;@JsonKey(name: 'covers') List<int>? get covers;@JsonKey(name: 'subject_places') List<String>? get subjectPlaces;@JsonKey(name: 'subjects') List<String>? get subjects;@JsonKey(name: 'subject_people') List<String>? get subjectPeople;@JsonKey(name: 'authors') List<WorkAuthor>? get authors;
+ String get key; String get title;@JsonKey(fromJson: _descriptionFromJson) String? get description;@JsonKey(name: 'covers') List<int>? get covers;@JsonKey(name: 'subject_places') List<String>? get subjectPlaces;@JsonKey(name: 'subjects') List<String>? get subjects;@JsonKey(name: 'subject_people') List<String>? get subjectPeople;@JsonKey(name: 'authors') List<WorkAuthor>? get authors;
 /// Create a copy of Work
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $WorkCopyWith<$Res>  {
   factory $WorkCopyWith(Work value, $Res Function(Work) _then) = _$WorkCopyWithImpl;
 @useResult
 $Res call({
- String key, String title, String? description,@JsonKey(name: 'covers') List<int>? covers,@JsonKey(name: 'subject_places') List<String>? subjectPlaces,@JsonKey(name: 'subjects') List<String>? subjects,@JsonKey(name: 'subject_people') List<String>? subjectPeople,@JsonKey(name: 'authors') List<WorkAuthor>? authors
+ String key, String title,@JsonKey(fromJson: _descriptionFromJson) String? description,@JsonKey(name: 'covers') List<int>? covers,@JsonKey(name: 'subject_places') List<String>? subjectPlaces,@JsonKey(name: 'subjects') List<String>? subjects,@JsonKey(name: 'subject_people') List<String>? subjectPeople,@JsonKey(name: 'authors') List<WorkAuthor>? authors
 });
 
 
@@ -160,7 +160,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String key,  String title,  String? description, @JsonKey(name: 'covers')  List<int>? covers, @JsonKey(name: 'subject_places')  List<String>? subjectPlaces, @JsonKey(name: 'subjects')  List<String>? subjects, @JsonKey(name: 'subject_people')  List<String>? subjectPeople, @JsonKey(name: 'authors')  List<WorkAuthor>? authors)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String key,  String title, @JsonKey(fromJson: _descriptionFromJson)  String? description, @JsonKey(name: 'covers')  List<int>? covers, @JsonKey(name: 'subject_places')  List<String>? subjectPlaces, @JsonKey(name: 'subjects')  List<String>? subjects, @JsonKey(name: 'subject_people')  List<String>? subjectPeople, @JsonKey(name: 'authors')  List<WorkAuthor>? authors)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Work() when $default != null:
 return $default(_that.key,_that.title,_that.description,_that.covers,_that.subjectPlaces,_that.subjects,_that.subjectPeople,_that.authors);case _:
@@ -181,7 +181,7 @@ return $default(_that.key,_that.title,_that.description,_that.covers,_that.subje
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String key,  String title,  String? description, @JsonKey(name: 'covers')  List<int>? covers, @JsonKey(name: 'subject_places')  List<String>? subjectPlaces, @JsonKey(name: 'subjects')  List<String>? subjects, @JsonKey(name: 'subject_people')  List<String>? subjectPeople, @JsonKey(name: 'authors')  List<WorkAuthor>? authors)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String key,  String title, @JsonKey(fromJson: _descriptionFromJson)  String? description, @JsonKey(name: 'covers')  List<int>? covers, @JsonKey(name: 'subject_places')  List<String>? subjectPlaces, @JsonKey(name: 'subjects')  List<String>? subjects, @JsonKey(name: 'subject_people')  List<String>? subjectPeople, @JsonKey(name: 'authors')  List<WorkAuthor>? authors)  $default,) {final _that = this;
 switch (_that) {
 case _Work():
 return $default(_that.key,_that.title,_that.description,_that.covers,_that.subjectPlaces,_that.subjects,_that.subjectPeople,_that.authors);case _:
@@ -201,7 +201,7 @@ return $default(_that.key,_that.title,_that.description,_that.covers,_that.subje
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String key,  String title,  String? description, @JsonKey(name: 'covers')  List<int>? covers, @JsonKey(name: 'subject_places')  List<String>? subjectPlaces, @JsonKey(name: 'subjects')  List<String>? subjects, @JsonKey(name: 'subject_people')  List<String>? subjectPeople, @JsonKey(name: 'authors')  List<WorkAuthor>? authors)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String key,  String title, @JsonKey(fromJson: _descriptionFromJson)  String? description, @JsonKey(name: 'covers')  List<int>? covers, @JsonKey(name: 'subject_places')  List<String>? subjectPlaces, @JsonKey(name: 'subjects')  List<String>? subjects, @JsonKey(name: 'subject_people')  List<String>? subjectPeople, @JsonKey(name: 'authors')  List<WorkAuthor>? authors)?  $default,) {final _that = this;
 switch (_that) {
 case _Work() when $default != null:
 return $default(_that.key,_that.title,_that.description,_that.covers,_that.subjectPlaces,_that.subjects,_that.subjectPeople,_that.authors);case _:
@@ -216,12 +216,12 @@ return $default(_that.key,_that.title,_that.description,_that.covers,_that.subje
 @JsonSerializable()
 
 class _Work implements Work {
-  const _Work({required this.key, required this.title, this.description, @JsonKey(name: 'covers') final  List<int>? covers, @JsonKey(name: 'subject_places') final  List<String>? subjectPlaces, @JsonKey(name: 'subjects') final  List<String>? subjects, @JsonKey(name: 'subject_people') final  List<String>? subjectPeople, @JsonKey(name: 'authors') final  List<WorkAuthor>? authors}): _covers = covers,_subjectPlaces = subjectPlaces,_subjects = subjects,_subjectPeople = subjectPeople,_authors = authors;
+  const _Work({required this.key, required this.title, @JsonKey(fromJson: _descriptionFromJson) this.description, @JsonKey(name: 'covers') final  List<int>? covers, @JsonKey(name: 'subject_places') final  List<String>? subjectPlaces, @JsonKey(name: 'subjects') final  List<String>? subjects, @JsonKey(name: 'subject_people') final  List<String>? subjectPeople, @JsonKey(name: 'authors') final  List<WorkAuthor>? authors}): _covers = covers,_subjectPlaces = subjectPlaces,_subjects = subjects,_subjectPeople = subjectPeople,_authors = authors;
   factory _Work.fromJson(Map<String, dynamic> json) => _$WorkFromJson(json);
 
 @override final  String key;
 @override final  String title;
-@override final  String? description;
+@override@JsonKey(fromJson: _descriptionFromJson) final  String? description;
  final  List<int>? _covers;
 @override@JsonKey(name: 'covers') List<int>? get covers {
   final value = _covers;
@@ -301,7 +301,7 @@ abstract mixin class _$WorkCopyWith<$Res> implements $WorkCopyWith<$Res> {
   factory _$WorkCopyWith(_Work value, $Res Function(_Work) _then) = __$WorkCopyWithImpl;
 @override @useResult
 $Res call({
- String key, String title, String? description,@JsonKey(name: 'covers') List<int>? covers,@JsonKey(name: 'subject_places') List<String>? subjectPlaces,@JsonKey(name: 'subjects') List<String>? subjects,@JsonKey(name: 'subject_people') List<String>? subjectPeople,@JsonKey(name: 'authors') List<WorkAuthor>? authors
+ String key, String title,@JsonKey(fromJson: _descriptionFromJson) String? description,@JsonKey(name: 'covers') List<int>? covers,@JsonKey(name: 'subject_places') List<String>? subjectPlaces,@JsonKey(name: 'subjects') List<String>? subjects,@JsonKey(name: 'subject_people') List<String>? subjectPeople,@JsonKey(name: 'authors') List<WorkAuthor>? authors
 });
 
 

@@ -4,12 +4,22 @@ import 'common.dart';
 part 'work_edition.freezed.dart';
 part 'work_edition.g.dart';
 
+/// Helper to extract description from either String or Map format
+/// OpenLibrary API sometimes returns description as:
+/// - String: "Simple description text"
+/// - Map: {"type": "/type/text", "value": "Description text"}
+String? _descriptionFromJson(dynamic value) {
+  if (value == null) return null;
+  if (value is String) return value;
+  if (value is Map) return value['value'] as String?;
+  return null;
+}
 @freezed
 abstract class Work with _$Work {
   const factory Work({
     required String key,
     required String title,
-    String? description,
+    @JsonKey(fromJson: _descriptionFromJson) String? description,
     @JsonKey(name: 'covers') List<int>? covers,
     @JsonKey(name: 'subject_places') List<String>? subjectPlaces,
     @JsonKey(name: 'subjects') List<String>? subjects,

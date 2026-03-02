@@ -9,7 +9,7 @@ part of 'work_edition.dart';
 _Work _$WorkFromJson(Map<String, dynamic> json) => _Work(
   key: json['key'] as String,
   title: json['title'] as String,
-  description: json['description'] as String?,
+  description: _descriptionFromJson(json['description']),
   covers: (json['covers'] as List<dynamic>?)
       ?.map((e) => (e as num).toInt())
       .toList(),
